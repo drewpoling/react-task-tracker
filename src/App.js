@@ -12,63 +12,23 @@ import "./index.css";
 import BillableChart from "./components/BillableChart";
 import HomeHeader from "./components/HomeHeader";
 
-export const fetchCompTasksForEachMonth = async () => {
-  const res = await fetch("http://localhost:5000/tasks");
-  const data = await res.json();
-  const compTasksForEachMonth = {
-    janCompTasks: data.filter(
-      (task) => task.status !== false && task.month === 1
-    ),
-    febCompTasks: data.filter(
-      (task) => task.status !== false && task.month === 2
-    ),
-    marCompTasks: data.filter(
-      (task) => task.status !== false && task.month === 3
-    ),
-    aprCompTasks: data.filter(
-      (task) => task.status !== false && task.month === 4
-    ),
-    mayCompTasks: data.filter(
-      (task) => task.status !== false && task.month === 5
-    ),
-    junCompTasks: data.filter(
-      (task) => task.status !== false && task.month === 6
-    ),
-    julCompTasks: data.filter(
-      (task) => task.status !== false && task.month === 7
-    ),
-    augCompTasks: data.filter(
-      (task) => task.status !== false && task.month === 8
-    ),
-    sepCompTasks: data.filter(
-      (task) => task.status !== false && task.month === 9
-    ),
-    octCompTasks: data.filter(
-      (task) => task.status !== false && task.month === 10
-    ),
-    novCompTasks: data.filter(
-      (task) => task.status !== false && task.month === 11
-    ),
-    decCompTasks: data.filter(
-      (task) => task.status !== false && task.month === 12
-    ),
-  };
-  console.log(compTasksForEachMonth.febCompTasks.length);
-  console.log(compTasksForEachMonth.janCompTasks.length);
-
-  return compTasksForEachMonth;
-};
-
 const App = () => {
   const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([]);
+  const [compTasks, setCompTasks] = useState([]);
+  const [compHrs, setCompHrs] = useState([]);
 
   useEffect(() => {
     const getTasks = async () => {
       const tasksFromServer = await fetchTasks();
       setTasks(tasksFromServer);
-    };
 
+      const compTasksFromServer = await fetchCompTasksForEachMonth();
+      setCompTasks(compTasksFromServer);
+
+      const compHrsFromServer = await fetchCompHrsForEachMonth();
+      setCompHrs(compHrsFromServer);
+    };
     getTasks();
   }, []);
 
@@ -76,7 +36,6 @@ const App = () => {
   const fetchTasks = async () => {
     const res = await fetch("http://localhost:5000/tasks");
     const data = await res.json();
-    fetchCompTasksForEachMonth();
     const tasksInProgress = data.filter((task) => task.status !== true);
     return tasksInProgress;
   };
@@ -89,58 +48,56 @@ const App = () => {
     return data;
   };
 
-  //filters completed tasks into new array depending on when they were finished
+  //reduces tasks completed from each month into new array
 
   const fetchCompTasksForEachMonth = async () => {
-    const res = await fetch("http://localhost:5000/tasks");
-    const data = await res.json();
-    const compTasksForEachMonth = {
-      janCompTasks: data.filter(
-        (task) => task.status !== false && task.month === 1
-      ),
-      febCompTasks: data.filter(
-        (task) => task.status !== false && task.month === 2
-      ),
-      marCompTasks: data.filter(
-        (task) => task.status !== false && task.month === 3
-      ),
-      aprCompTasks: data.filter(
-        (task) => task.status !== false && task.month === 4
-      ),
-      mayCompTasks: data.filter(
-        (task) => task.status !== false && task.month === 5
-      ),
-      junCompTasks: data.filter(
-        (task) => task.status !== false && task.month === 6
-      ),
-      julCompTasks: data.filter(
-        (task) => task.status !== false && task.month === 7
-      ),
-      augCompTasks: data.filter(
-        (task) => task.status !== false && task.month === 8
-      ),
-      sepCompTasks: data.filter(
-        (task) => task.status !== false && task.month === 9
-      ),
-      octCompTasks: data.filter(
-        (task) => task.status !== false && task.month === 10
-      ),
-      novCompTasks: data.filter(
-        (task) => task.status !== false && task.month === 11
-      ),
-      decCompTasks: data.filter(
-        (task) => task.status !== false && task.month === 12
-      ),
-    };
-    //return compTasksForEachMonth;
-    return [10, 6, 8, 9, 5, 3];
+    try {
+      const res = await fetch("http://localhost:5000/tasks");
+      const data = await res.json();
+
+      if (data) {
+        const compTasksFromServer = data.reduce(
+          (tasksArray, task) => {
+            tasksArray[task.month - 1] += 1;
+            return tasksArray;
+          },
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        );
+        setCompTasks(compTasksFromServer);
+        return compTasksFromServer;
+      }
+      return [];
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  const task = async () => await fetchCompTasksForEachMonth();
-  console.log(task);
-  // const compTasksForEachMonth = async () => await fetchCompTasksForEachMonth();
-  // console.log(compTasksForEachMonth);
-  // const janCompTasks = compTasksForEachMonth.janCompTasks.length;
+  const fetchCompHrsForEachMonth = async () => {
+    try {
+      const res = await fetch("http://localhost:5000/tasks");
+      const data = await res.json();
+
+      if (data) {
+        const compHrsFromServer = data.reduce(
+          (tasksArray, task) => {
+            tasksArray[task.month - 1] += +task.hrs;
+            return tasksArray;
+          },
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        );
+        setCompHrs(compHrsFromServer);
+        return compHrsFromServer;
+      }
+      return [];
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // (async () => {
+  //   console.log(await fetchCompTasksForEachMonth());
+  // })();
+
   // Add Task
   const addTask = async (task) => {
     const res = await fetch("http://localhost:5000/tasks", {
@@ -171,57 +128,36 @@ const App = () => {
       : alert("Error Deleting This Task");
   };
 
-  const completeTaskTest = async (id) => {
-    const taskToToggle = await fetchTask(id);
-    const updTask = { ...taskToToggle, status: !taskToToggle.status };
-
-    const res = await fetch(`http://localhost:3001/tasks/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(updTask),
-    });
-
-    const data = await res.json();
-
-    setTasks(
-      tasks.map((task) =>
-        task.id === id ? { ...task, status: data.status } : task
-      )
-    );
-  };
-
   const toggleStatus = async (id) => {
     let today = new Date();
     let month = today.getMonth() + 1;
 
     const taskToToggle = await fetchTask(id);
-    const compTask = {
-      ...taskToToggle,
-      status: !taskToToggle.status,
-      month: month,
-    };
-
-    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(compTask),
-    });
-    const data = await res.json();
-
-    res.status === 200
-      ? setTasks(tasks.filter((task) => task.id !== id))
-      : alert("Error Completing This Task");
-
-    let person = prompt("Please enter the amount of hrs used for this task.");
-    let text;
-    if (person == null || person == "") {
-      text = "User cancelled the prompt.";
+    let hrs = prompt("Please enter the amount of hrs used for this task.");
+    if (isNaN(hrs)) {
+      alert("Must input numbers");
+      return null;
     } else {
-      text = "Hello " + person + "! How are you today?";
+      const compTask = {
+        ...taskToToggle,
+        status: !taskToToggle.status,
+        month: month,
+        hrs: hrs,
+      };
+      const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(compTask),
+      });
+      const data = await res.json();
+
+      res.status === 200
+        ? setTasks(tasks.filter((task) => task.id !== id))
+        : alert("Error Completing This Task");
+      fetchCompHrsForEachMonth();
+      fetchCompTasksForEachMonth();
     }
   };
 
@@ -258,10 +194,10 @@ const App = () => {
 
                   <div className="col-5">
                     <div className="widget-container">
-                      <ProgressChart task={[]} />
+                      <ProgressChart task={compTasks} />
                     </div>
                     <div className="widget-container">
-                      <BillableChart />
+                      <BillableChart hrs={compHrs} />
                     </div>
                   </div>
                 </div>
