@@ -7,6 +7,9 @@ const ProgressChart = (props) => {
     options: {
       chart: {
         foreColor: "black",
+        toolbar: {
+          show: false,
+        },
       },
       xaxis: {
         categories: [
@@ -38,12 +41,14 @@ const ProgressChart = (props) => {
         offsetY: 20,
         style: {
           fontSize: "25px",
+          fontWeight: "500",
+          fontFamily: "Open Sans sans-serif !important",
         },
       },
     },
     series: [
       {
-        name: "Population",
+        name: "Tasks",
         data: props.task,
       },
     ],
@@ -55,7 +60,7 @@ const ProgressChart = (props) => {
         ...c,
         series: [
           {
-            name: "Population",
+            name: "Tasks",
             data: props.task,
           },
         ],
@@ -68,7 +73,7 @@ const ProgressChart = (props) => {
       options={chartOptions.options}
       series={chartOptions.series}
       type="bar"
-      height="320"
+      height="325"
       width="100%"
     />
   );

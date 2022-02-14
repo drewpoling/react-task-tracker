@@ -10,6 +10,7 @@ const session = require("express-session");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
+const jwt = require("jsonwebtoken");
 const app = express();
 
 app.use(express.json());
@@ -31,6 +32,7 @@ app.use(
     saveUninitialized: false,
     cookie: {
       expires: 60 * 60 * 24,
+      httpOnly: false,
     },
   })
 );
@@ -45,21 +47,46 @@ const db = mysql.createConnection({
 
 app.post("/register", (req, res) => {
   const username = req.body.username;
+  const name = req.body.name;
   const password = req.body.password;
-
+  console.log(res);
   bcrypt.hash(password, saltRounds, (err, hash) => {
     if (err) {
       console.log(err);
     }
 
     db.query(
-      "INSERT INTO users (username, password) VALUES (?,?)",
-      [username, hash],
+      "INSERT INTO users (username, name, password) VALUES (?,?,?)",
+      [username, name, hash],
       (err, result) => {
         console.log(err);
       }
     );
   });
+});
+
+const verifyJWT = (req, res, next) => {
+  const token = req.headers["x-access-token"];
+
+  if (!token) {
+    res.redirect("/");
+    res.send("A token is required. Please pass it next time.");
+  } else {
+    jwt.verify(token, "jwtSecret", (err, decoded) => {
+      if (err) {
+        res.redirect("/");
+        res.json({ auth: false, message: "Authentication failed" });
+      } else {
+        req.userId = decoded.id;
+        console.log(decoded);
+        next();
+      }
+    });
+  }
+};
+
+app.get("/isUserAuth", verifyJWT, (req, res) => {
+  res.send("user is authenticated");
 });
 
 app.get("/login", (req, res) => {
@@ -85,15 +112,22 @@ app.post("/login", (req, res) => {
       if (result.length > 0) {
         bcrypt.compare(password, result[0].password, (error, response) => {
           if (response) {
+            const id = result[0].id;
+            const token = jwt.sign({ id }, "jwtSecret", {
+              expiresIn: 300,
+            });
+
             req.session.user = result;
-            console.log(req.session.user);
-            res.send(result);
+            res.json({ auth: true, token: token, result: result });
           } else {
-            res.send({ message: "Wrong username/password combination!" });
+            res.json({
+              auth: false,
+              message: "Wrong username/password combination!",
+            });
           }
         });
       } else {
-        res.send({ message: "User doesn't exist" });
+        res.json({ auth: false, message: "User doesn't exist" });
       }
     }
   );

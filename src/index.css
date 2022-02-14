@@ -1,5 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,19 +8,94 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Open Sans", sans-serif !important;
   background: linear-gradient(whitesmoke, whitesmoke);
 }
 
+h1,
+p,
+button {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+h4,
+h5,
+h6 {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+}
+
+.leaderboard-container {
+  margin: 30px auto;
+  overflow: auto;
+  border-radius: 2px;
+  border: 1px solid silver;
+  background-color: white;
+}
 .widget-container {
   margin: 30px auto;
   overflow: auto;
   padding: 30px;
+  max-height: 745px;
   border-radius: 2px;
   border: 1px solid silver;
   background-color: white;
 }
 
+.widget2-container {
+  margin: 30px auto;
+  overflow: auto;
+  padding: 0px 30px;
+  border-radius: 2px;
+  border: 1px solid silver;
+  background-color: white;
+}
+.widget3-container {
+  margin: 30px auto;
+  overflow: auto;
+  padding: 0px 30px 10px 30px;
+  border-radius: 2px;
+  border: 1px solid silver;
+  background-color: white;
+}
+
+.tooltip {
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.btn:hover {
+  color: white;
+  border: 1px solid blue !important;
+  filter: contrast(110%);
+}
+
+.hov:hover {
+  fill: rgba(245, 245, 245, 0.76);
+  transform: 100%;
+}
+.hov2:hover {
+  filter: contrast(200%);
+}
 .login-container {
   overflow: auto;
   padding: 30px;
@@ -33,6 +109,15 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+}
+
+.score-container {
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: no-wrap;
+  flex-direction: row;
+  align-items: center;
+  cursor: default;
 }
 
 .btn {

@@ -1,24 +1,20 @@
 import PropTypes from "prop-types";
-import Button from "./Button";
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
 import {
-  AiOutlineRobot,
   AiOutlineTrophy,
-  AiOutlineSetting,
-  AiOutlineAlert,
   AiOutlineExport,
+  AiOutlineDatabase,
 } from "react-icons/ai";
+import Tooltip from "@mui/material/Tooltip";
 
-const Header = ({ title, onAdd, showAdd }) => {
-  const location = useLocation();
+const Header = ({ onLogout, onTasks, onLeaderboard, userName }) => {
   return (
     <>
       <div
         style={{
           background: "dodgerblue",
           paddingLeft: "30px",
-          paddingBottom: "0px",
+          paddingBottom: "30px",
+          paddingTop: "30px",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -28,59 +24,53 @@ const Header = ({ title, onAdd, showAdd }) => {
         }}
       >
         <div>
-          <img
-            src="Untitled-1-01.svg"
-            style={{ width: "100px", height: "100px" }}
-            alt="img path not correct"
-          />
+          <h1
+            style={{
+              fontSize: "34px",
+              color: "white",
+              fontWeight: "bold",
+              fontFamily: "sans-serif",
+              marginBottom: "0px",
+            }}
+          >
+            Task Tracker
+          </h1>
         </div>
 
-        <div>
-          <AiOutlineTrophy
+        <div style={{ display: "flex" }}>
+          <AiOutlineDatabase
+            className="hov"
             size={23}
+            onClick={onTasks}
             style={{
               color: "white",
               cursor: "pointer",
-              marginTop: "20px",
+              marginRight: "12px",
+            }}
+            title="Tasks"
+          ></AiOutlineDatabase>
+          <AiOutlineTrophy
+            className="hov tooltiptext"
+            size={23}
+            onClick={onLeaderboard}
+            style={{
+              color: "white",
+              cursor: "pointer",
               marginRight: "12px",
             }}
           ></AiOutlineTrophy>
-          <AiOutlineAlert
-            size={23}
-            style={{
-              color: "white",
-              cursor: "pointer",
-              marginTop: "20px",
-              marginRight: "12px",
-            }}
-          ></AiOutlineAlert>
-          <AiOutlineSetting
-            size={23}
-            style={{
-              color: "white",
-              cursor: "pointer",
-              marginTop: "20px",
-              marginRight: "12px",
-            }}
-          ></AiOutlineSetting>
-          <AiOutlineRobot
-            size={23}
-            style={{
-              color: "white",
-              cursor: "pointer",
-              marginTop: "20px",
-              marginRight: "12px",
-            }}
-          ></AiOutlineRobot>
+
           <AiOutlineExport
+            className="hov"
+            onClick={onLogout}
             size={23}
             style={{
               color: "white",
               cursor: "pointer",
-              marginTop: "20px",
               marginRight: "12px",
             }}
           ></AiOutlineExport>
+          <h3 style={{ color: "white", margin: "0px" }}>{userName}</h3>
         </div>
       </div>
     </>

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Chart from "react-apexcharts";
 import { useState, useEffect } from "react";
 
@@ -7,6 +7,9 @@ const BillableChart = (props) => {
     options: {
       chart: {
         foreColor: "black",
+        toolbar: {
+          show: false,
+        },
       },
       xaxis: {
         categories: [
@@ -25,11 +28,19 @@ const BillableChart = (props) => {
         ],
         title: {
           text: "Month",
+          style: {
+            fontWeight: "500",
+            fontFamily: "Open Sans sans-serif !important",
+          },
         },
       },
       yaxis: {
         title: {
           text: "(In Dollars)",
+          style: {
+            fontWeight: "500",
+            fontFamily: "Open Sans sans-serif !important",
+          },
         },
       },
 
@@ -51,6 +62,8 @@ const BillableChart = (props) => {
         offsetY: 20,
         style: {
           fontSize: "25px",
+          fontWeight: "500",
+          fontFamily: "Open Sans sans-serif !important",
         },
       },
     },
@@ -74,7 +87,7 @@ const BillableChart = (props) => {
         ...c,
         series: [
           {
-            name: "Population",
+            name: "Hours",
             data: props.hrs,
           },
         ],
@@ -87,7 +100,7 @@ const BillableChart = (props) => {
       options={chartOptions.options}
       series={chartOptions.series}
       type="line"
-      height="300"
+      height="325"
       width="100%"
     />
   );
