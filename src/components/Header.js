@@ -7,9 +7,10 @@ const Header = ({ title, onAdd, showAdd }) => {
 
   return (
     <header className="header">
-      <h1>{title}</h1>
+      <h1 style={{ marginLeft: "5px" }}>{title}</h1>
       {location.pathname === "/home" && (
         <Button
+          className="hover:hover"
           color={showAdd ? "red" : "#42b72a"}
           text={showAdd ? "Close" : "Add"}
           onClick={onAdd}
@@ -21,7 +22,7 @@ const Header = ({ title, onAdd, showAdd }) => {
 };
 
 Header.defaultProps = {
-  title: "Task Tracker",
+  title: "Tasks",
 };
 
 Header.propTypes = {

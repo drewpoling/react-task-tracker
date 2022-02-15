@@ -3,25 +3,40 @@ import Axios from "axios";
 import "../App.css";
 import { useNavigate } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { GrFormClose } from "react-icons/gr";
 
-export default function Login() {
+export default function Login({ onLogin }) {
   let navigate = useNavigate();
   const [usernameReg, setUsernameReg] = useState("");
+  const [nameReg, setNameReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const [loginStatus, setLoginStatus] = useState("");
+  const [loginStatus, setLoginStatus] = useState(0);
 
   Axios.defaults.withCredentials = true;
 
   const register = () => {
-    Axios.post("http://localhost:3001/register", {
-      username: usernameReg,
-      password: passwordReg,
+    try {
+      Axios.post("http://localhost:3001/register", {
+        username: usernameReg,
+        name: nameReg,
+        password: passwordReg,
+      }).then((response) => {
+        console.log("register response = " + response);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const userAuthenticated = () => {
+    Axios.get("http://localhost:3001/isUserAuth", {
+      headers: { "x-access-token": localStorage.getItem("token") },
     }).then((response) => {
-      console.log(response);
+      console.log("userAuthenticated response = " + response);
     });
   };
 
@@ -32,160 +47,234 @@ export default function Login() {
     }).then((response) => {
       Axios.get("http://localhost:3001/login").then((response) => {
         if (response.data.loggedIn === true) {
-          setLoginStatus(response.data.user[0].username);
+          userAuthenticated();
           navigate("/home");
           console.log(response);
+          const userId = response.data.user[0].id;
+          const userName = response.data.user[0].name;
+          onLogin(userId, userName);
+        } else {
+          navigate("/");
         }
       });
-      if (response.data.message) {
-        setLoginStatus(response.data.message);
+      if (!response.data.auth) {
+        setLoginStatus(false);
       } else {
-        setLoginStatus(response.data[0].username);
+        localStorage.setItem("token", response.data.token);
+        setLoginStatus(true);
       }
     });
   };
 
+  function Error() {
+    return (
+      <h2 style={{ color: "red", fontWeight: "500", paddingTop: "5px" }}>
+        Incorrect information
+      </h2>
+    );
+  }
+
   return (
-    <div className="">
-      <div className="container" style={{ padding: "0px 150px" }}>
-        <div className="row" style={{ padding: "75px 0px 150px 0px" }}>
-          <div
-            className="col-5"
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              margin: "auto",
-            }}
-          >
+    <div>
+      <div className="container">
+        <div className="col-11" style={{ margin: "auto" }}>
+          <div className="row" style={{ padding: "125px 0px 150px 0px" }}>
             <div
-              className="login-container"
+              className="col-xl-5 col"
               style={{
                 display: "flex",
-                flexDirection: "column",
                 justifyContent: "center",
-                alignItems: "center",
+                margin: "auto",
               }}
             >
-              <img
-                src="sim-oo11-01.svg"
-                style={{ width: "200px", height: "auto" }}
-                alt="img path not correct"
-              />
-              <h2
+              <div
+                className="login-container"
                 style={{
-                  textAlign: "center",
-                  fontWeight: "normal",
-                  margin: "15px 0px 20px 0px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
-                Track your project progress individually or with teams on Sim.
-              </h2>
+                <h1
+                  style={{
+                    color: "dodgerblue",
+                    fontSize: "36px",
+                    fontWeight: "bold",
+                    fontFamily: "serif !important",
+                    textAlign: "center",
+                  }}
+                >
+                  Task Tracker
+                </h1>
+                <h2
+                  style={{
+                    textAlign: "center",
+                    fontWeight: "normal",
+                    margin: "15px 0px 20px 0px",
+                  }}
+                >
+                  Track project progress individually or with teams on Task
+                  Tracker.
+                </h2>
 
-              <hr />
+                <hr />
 
-              <input
-                style={{
-                  border: "1px solid silver",
-                  borderRadius: "2px",
-                  width: "100%",
-                  display: "block",
-                  marginTop: "20px",
-                  paddingLeft: "10px",
-                  fontSize: "medium",
-                }}
-                type="text"
-                placeholder="Email"
-                onChange={(e) => {
-                  setUsername(e.target.value);
-                }}
-              />
-              <input
-                type="text"
-                style={{
-                  border: "1px solid silver",
-                  width: "100%",
-                  display: "block",
-                  borderRadius: "2px",
-                  paddingLeft: "10px",
-                  marginTop: "5px",
-                  fontSize: "medium",
-                }}
-                placeholder="Password"
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
-              <button
-                className="btn btn-block"
-                style={{
-                  fontSize: "medium",
-                  color: "white",
+                <input
+                  style={{
+                    border: "1px solid silver",
+                    borderRadius: "2px",
+                    width: "100%",
+                    display: "block",
+                    marginTop: "20px",
+                    paddingLeft: "10px",
+                    fontSize: "medium",
+                  }}
+                  type="email"
+                  placeholder="Email"
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
+                />
+                <input
+                  type="password"
+                  style={{
+                    border: "1px solid silver",
+                    width: "100%",
+                    display: "block",
+                    borderRadius: "2px",
+                    paddingLeft: "10px",
+                    marginTop: "5px",
+                    fontSize: "medium",
+                  }}
+                  placeholder="Password"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                />
+                <button
+                  className="btn btn-block"
+                  style={{
+                    fontSize: "medium",
+                    color: "white",
 
-                  backgroundColor: "dodgerblue",
-                  margin: "30px auto 10px auto",
-                }}
-                onClick={login}
-              >
-                Login
-              </button>
-              <a style={{ marginBottom: "20px" }} href="/forgotpassword">
-                Forgot password?
-              </a>
-              <hr />
+                    backgroundColor: "dodgerblue",
+                    margin: "30px auto 20px auto",
+                  }}
+                  onClick={login}
+                >
+                  Login
+                </button>
+                {loginStatus === false ? <Error /> : null}
 
-              <button
-                type="submit"
-                className="btn btn-block"
-                style={{
-                  backgroundColor: "#42b72a",
-                  fontSize: "medium",
-                  color: "white",
-                  marginTop: "20px",
-                  marginBottom: "0px",
-                }}
-                data-toggle="modal"
-                data-target="#myModal"
-              >
-                Sign up
-              </button>
-              <p style={{ fontSize: "small", margin: "10px 0px" }}>
-                Take a video <a href="/video">tour</a> to learn more
-              </p>
+                <hr />
+
+                <button
+                  type="submit"
+                  className="btn btn-block"
+                  style={{
+                    backgroundColor: "#42b72a",
+                    fontSize: "medium",
+                    color: "white",
+                    marginTop: "20px",
+                    marginBottom: "0px",
+                  }}
+                  data-toggle="modal"
+                  data-target="#myModal"
+                >
+                  Sign up
+                </button>
+              </div>
             </div>
           </div>
         </div>
-
-        <h1>{loginStatus}</h1>
       </div>
-      <div className="modal fade " id="myModal" role="dialog">
+
+      {
+        //modal
+      }
+      <div className="modal fade" id="myModal" role="dialog">
         <div className="modal-dialog modal-dialog-centered" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <button type="button" className="close" data-dismiss="modal">
-                &times;
+          <div className="modal-content" style={{ padding: "20px" }}>
+            <div
+              className="modal-header"
+              style={{ border: "none", paddingLeft: "25px" }}
+            >
+              <h1
+                className="modal-title"
+                style={{
+                  color: "dodgerblue",
+                  fontSize: "36px",
+                  fontWeight: "bold",
+                  fontFamily: "serif !important",
+                  textAlign: "center",
+                  marginLeft: "auto",
+                }}
+              >
+                Sign up
+              </h1>
+
+              <button
+                type="button"
+                style={{ padding: "0px" }}
+                className="close"
+                data-dismiss="modal"
+              >
+                <GrFormClose size={30} />
               </button>
-              <h1 className="modal-title">Sign up</h1>
             </div>
             <div className="modal-body">
+              <hr />
+
               <form>
-                <div className="form-group">
-                  <label for="exampleInputEmail1"></label>
+                <div className="">
                   <input
-                    type="text"
-                    className="test"
+                    type="email"
+                    style={{
+                      border: "1px solid silver",
+                      width: "100%",
+                      display: "block",
+                      borderRadius: "2px",
+                      paddingLeft: "10px",
+                      marginTop: "30px",
+                      fontSize: "medium",
+                    }}
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
-                    placeholder="Email or username"
+                    placeholder="Email"
                     onChange={(e) => {
                       setUsernameReg(e.target.value);
                     }}
                   />
-                </div>
-                <div className="form-group">
-                  <label for="exampleInputPassword1"></label>
                   <input
                     type="text"
-                    className="form-control"
+                    maxlength="3"
+                    style={{
+                      border: "1px solid silver",
+                      width: "100%",
+                      display: "block",
+                      borderRadius: "2px",
+                      paddingLeft: "10px",
+                      marginTop: "5px",
+                      fontSize: "medium",
+                    }}
+                    id="exampleInputName1"
+                    placeholder="Username"
+                    onChange={(e) => {
+                      setNameReg(e.target.value);
+                    }}
+                  />
+                  <input
+                    type="password"
+                    style={{
+                      border: "1px solid silver",
+                      width: "100%",
+                      display: "block",
+                      borderRadius: "2px",
+                      paddingLeft: "10px",
+                      marginTop: "5px",
+                      fontSize: "medium",
+                    }}
                     id="exampleInputPassword1"
                     placeholder="Password"
                     onChange={(e) => {
@@ -193,26 +282,25 @@ export default function Login() {
                     }}
                   />
                 </div>
-                <div className="form-check"></div>
+
                 <button
                   type="submit"
-                  className="login-button"
+                  className="btn btn-block"
+                  style={{
+                    backgroundColor: "#42b72a",
+                    fontSize: "medium",
+                    color: "white",
+                    marginTop: "30px",
+                    marginBottom: "10px",
+                    border: "none",
+                  }}
                   data-toggle="modal"
                   data-target="#myModal"
                   onClick={register}
                 >
                   Sign up
                 </button>
-              </form>{" "}
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-default"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
+              </form>
             </div>
           </div>
         </div>

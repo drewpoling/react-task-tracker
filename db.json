@@ -1,4 +1,5 @@
 {
+  "userScores": [],
   "tasks": [
     {
       "name": "dasd",
@@ -6,7 +7,21 @@
       "dueDate": "sads",
       "id": 4,
       "status": true,
-      "month": 1
+      "month": 1,
+      "userId": 18,
+      "username": "uu2  ",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dsads",
+      "dueDate": "sads",
+      "id": 4,
+      "status": true,
+      "month": 1,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "6"
     },
     {
       "name": "dasd",
@@ -14,7 +29,395 @@
       "dueDate": "dasd",
       "id": 5,
       "status": true,
-      "month": 2
+      "month": 2,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 2,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "9"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 4,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 4,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 4,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 4,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 5,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 6,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 6,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 6,
+      "username": "uu2",
+      "userId": 18,
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 6,
+      "username": "uu1",
+      "userId": 17,
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 6,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 6,
+      "username": "uu1",
+      "userId": 17,
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 7,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 7,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 7,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 8,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 8,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 9,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 9,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 9,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 9,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 10,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "6"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 10,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "3"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 10,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "2"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 10,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "5"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 10,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "10"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 10,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "3"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 10,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "9"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 11,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "1"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 11,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "2"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 12,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "3"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 12,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "8"
+    },
+    {
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 12,
+      "userId": 17,
+      "username": "uu1",
+      "hrs": "6"
     },
     {
       "name": "dasda",
@@ -22,7 +425,10 @@
       "dueDate": "sdad",
       "id": 6,
       "status": true,
-      "month": 2
+      "month": 2,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "6"
     },
     {
       "name": "eqwe",
@@ -30,79 +436,435 @@
       "dueDate": "eqwewq",
       "id": 7,
       "status": true,
-      "month": 2
-    },
-    {
-      "name": "sas",
-      "description": "dasda",
-      "dueDate": "",
-      "id": 8,
-      "status": true,
-      "month": 1
+      "month": 2,
+      "userId": 18,
+      "username": "uu2",
+      "hrs": "4"
     },
     {
       "name": "2",
       "description": "2",
       "dueDate": "",
-      "id": 9,
+      "id": 17,
       "status": true,
-      "month": 1
+      "month": 1,
+      "username": "uu1",
+      "userId": 17,
+      "hrs": "4"
     },
     {
-      "name": "3",
-      "description": "3",
-      "dueDate": "",
-      "id": 10,
-      "status": true,
-      "month": 1
-    },
-    {
-      "name": "4",
-      "description": "4",
-      "dueDate": "",
-      "id": 11,
-      "status": true,
-      "month": 1
-    },
-    {
-      "name": "2",
+      "name": "task 2",
       "description": "2",
       "dueDate": "",
-      "id": 12,
+      "id": 18,
       "status": true,
-      "month": 1
+      "username": "uu1",
+      "month": 1,
+      "userId": 17,
+      "hrs": "8"
     },
     {
-      "name": "3",
-      "description": "3",
+      "name": "yes",
+      "description": "",
       "dueDate": "",
-      "id": 13,
+      "id": 22,
       "status": true,
-      "month": 1
+      "username": "uu2",
+      "month": 1,
+      "userId": 18,
+      "hrs": "4"
     },
     {
-      "name": "21",
-      "description": "2",
-      "dueDate": "",
-      "id": 14,
+      "username": "www",
+      "name": "dasd",
+      "description": "dsads",
+      "dueDate": "sads",
+      "id": 4,
       "status": true,
-      "month": 1
+      "month": 1,
+      "userId": 17,
+      "hrs": "2"
     },
     {
-      "name": "test",
-      "description": "t",
-      "dueDate": "",
-      "id": 15,
+      "username": "eee",
+      "name": "dasd",
+      "description": "dsads",
+      "dueDate": "sads",
+      "id": 4,
       "status": true,
-      "month": 1
+      "month": 1,
+      "userId": 17,
+      "hrs": "40"
     },
     {
-      "name": "test 2",
-      "description": "dw",
-      "dueDate": "",
-      "id": 16,
+      "username": "sss",
+      "name": "dasd",
+      "description": "dsads",
+      "dueDate": "sads",
+      "id": 4,
       "status": true,
-      "month": 1
+      "month": 1,
+      "userId": 17,
+      "hrs": "4"
+    },
+    {
+      "username": "yyy",
+      "name": "dasd",
+      "description": "dsads",
+      "dueDate": "sads",
+      "id": 4,
+      "status": true,
+      "month": 1,
+      "userId": 17,
+      "hrs": "8"
+    },
+    {
+      "username": "qqq",
+      "name": "dasd",
+      "description": "dsads",
+      "dueDate": "sads",
+      "id": 4,
+      "status": true,
+      "month": 1,
+      "userId": 17,
+      "hrs": "12"
+    },
+    {
+      "username": "sss",
+      "name": "dasd",
+      "description": "dsads",
+      "dueDate": "sads",
+      "id": 4,
+      "status": true,
+      "month": 1,
+      "userId": 17,
+      "hrs": "4"
+    },
+    {
+      "username": "hhh",
+      "name": "dasd",
+      "description": "dsads",
+      "dueDate": "sads",
+      "id": 4,
+      "status": true,
+      "month": 1,
+      "userId": 17,
+      "hrs": "3"
+    },
+    {
+      "username": "ooo",
+      "name": "dasd",
+      "description": "dsads",
+      "dueDate": "sads",
+      "id": 4,
+      "status": true,
+      "month": 1,
+      "userId": 17,
+      "hrs": "3"
+    },
+    {
+      "username": "uuu",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 2,
+      "userId": 18,
+      "hrs": "7"
+    },
+    {
+      "username": "fff",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 2,
+      "userId": 17,
+      "hrs": "9"
+    },
+    {
+      "username": "uuu",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 17,
+      "hrs": "6"
+    },
+    {
+      "username": "zzz",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "5"
+    },
+    {
+      "username": "zzz",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "5"
+    },
+    {
+      "username": "zzz",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "1"
+    },
+    {
+      "username": "zzz",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "1"
+    },
+    {
+      "username": "www",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "1"
+    },
+    {
+      "username": "aaa",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "2"
+    },
+    {
+      "username": "iii",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "3"
+    },
+    {
+      "username": "xyz",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "4"
+    },
+    {
+      "username": "yha",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "7"
+    },
+    {
+      "username": "yhf",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "5"
+    },
+    {
+      "username": "ttt",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "3"
+    },
+    {
+      "username": "qqd",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "9"
+    },
+    {
+      "username": "ggg",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "2"
+    },
+    {
+      "username": "rrd",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "6"
+    },
+    {
+      "username": "sjs",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "7"
+    },
+    {
+      "username": "ujk",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "8"
+    },
+    {
+      "username": "jsj",
+      "name": "dasd",
+      "description": "dasdas",
+      "dueDate": "dasd",
+      "id": 5,
+      "status": true,
+      "month": 3,
+      "userId": 18,
+      "hrs": "4"
+    },
+    {
+      "name": "task",
+      "description": "due tomorrow",
+      "userId": 17,
+      "userName": "uu1",
+      "id": 25
+    },
+    {
+      "name": "task",
+      "description": "due tomorrow",
+      "userId": 17,
+      "userName": "uu1",
+      "id": 26
+    },
+    {
+      "name": "task",
+      "description": "due tomorrow",
+      "userId": 17,
+      "userName": "uu1",
+      "id": 27
+    },
+    {
+      "name": "task",
+      "description": "due tomorrow",
+      "userId": 17,
+      "userName": "uu1",
+      "id": 28
+    },
+    {
+      "name": "task",
+      "description": "due tomorrow",
+      "userId": 17,
+      "userName": "uu1",
+      "id": 29
+    },
+    {
+      "name": "task",
+      "description": "due tomorrow",
+      "userId": 17,
+      "userName": "uu1",
+      "id": 30
+    },
+    {
+      "name": "task",
+      "description": "due tomorrow",
+      "userId": 17,
+      "userName": "uu1",
+      "id": 31
+    },
+    {
+      "name": "task",
+      "description": "due tomorrow",
+      "userId": 17,
+      "userName": "uu1",
+      "id": 32
+    },
+    {
+      "name": "task",
+      "description": "due tomorrow",
+      "userId": 17,
+      "userName": "uu1",
+      "id": 33
+    },
+    {
+      "name": "task",
+      "description": "due tomorrow",
+      "userId": 17,
+      "userName": "uu1",
+      "id": 34
+    },
+    {
+      "name": "task",
+      "description": "due tomorrow",
+      "userId": 17,
+      "userName": "uu1",
+      "id": 35
+    },
+    {
+      "name": "task",
+      "description": "due tomorrow",
+      "userId": 17,
+      "userName": "uu1",
+      "id": 36
     }
   ]
 }
